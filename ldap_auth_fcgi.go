@@ -10,14 +10,14 @@ import (
   "log"
 )
 
-type LdapAuthenticationServer struct {
-  Authenticator LdapAuthenticator
+type AuthenticationServer struct {
+  Authenticator Authenticator
   Cache AuthenticationSessionCache
 }
 
-func (a LdapAuthenticationServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+func (a AuthenticationServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
-  cookie, err := r.Cookie("ldap_auth_session")
+  cookie, err := r.Cookie("auth_session")
 
   if err == nil {
     _,_, err = a.Cache.Lookup(cookie.Value)

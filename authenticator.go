@@ -5,6 +5,10 @@ import (
   "gopkg.in/ldap.v3"
 )
 
+type Authenticator interface {
+  Authenticate(string, string) error
+}
+
 type LdapAuthenticator struct {
   Ldap_Host string
   Ldap_Port int
