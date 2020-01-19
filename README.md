@@ -1,3 +1,9 @@
+# How to build
+
+```
+make
+```
+
 # Example config.yaml
 
 ```
