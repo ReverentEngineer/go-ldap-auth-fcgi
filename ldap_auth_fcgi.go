@@ -67,8 +67,11 @@ func configure(config *LdapAuthenticator) (error) {
 }
 
 func main() {
-  server := LdapAuthenticationServer{}
-  err := configure(&server.Authenticator)
+  server := AuthenticationServer{}
+  authenticator := LdapAuthenticator{}
+  err := configure(&authenticator)
+  server.Authenticator = authenticator
+
 
   if err != nil {
     log.Fatal(err)
