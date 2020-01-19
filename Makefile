@@ -1,2 +1,5 @@
-ldap_auth: ldap_auth.go 
+
+GO_SRCS = $(wildcard *.go)
+
+ldap_auth: $(GO_SRCS)
 	go build -o $@
